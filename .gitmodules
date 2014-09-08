@@ -1,0 +1,3 @@
+[submodule "revealjs"]
+	path = revealjs
+	url = https://github.com/andars/reveal.js.git
