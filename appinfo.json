@@ -1,21 +1,26 @@
 {
-    "versionLabel": "0.1",
-    "uuid": "4c74dc80-a54e-4d0b-9bab-fd355d364334",
-    "appKeys": {
-        "status": 0,
-        "message": 1
-    },
-    "longName": "accelerometer",
-    "versionCode": 1,
-    "capabilities": [
-        ""
-    ],
-    "shortName": "accelero",
-    "companyName": "andars",
-    "watchapp": {
-        "watchface": false
-    },
-    "resources": {
-        "media": []
-    }
+  "versionLabel": "0.1",
+  "uuid": "4c74dc80-a54e-4d0b-9bab-fd355d364334",
+  "appKeys": {
+    "status": 0,
+    "message": 1
+  },
+  "longName": "Controller",
+  "versionCode": 1,
+  "capabilities": [
+    ""
+  ],
+  "shortName": "Control",
+  "companyName": "andars",
+  "watchapp": {
+    "watchface": false
+  },
+  "resources": {
+    "media": []
+  },
+  "targetPlatforms": [
+    "aplite",
+    "basalt"
+  ],
+  "sdkVersion": "3"
 }

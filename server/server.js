@@ -1,32 +1,33 @@
 var express = require('express');
 var app = express();
 var bp = require('body-parser');
+var exec = require('child_process').exec;
 
-var socket;
+app.use(bp.urlencoded({extended: true}));
 
-app.use(bp.urlencoded());
+function exec_error(error, stdout, stderr) {
+    if (error !== null) console.error("error: " + error);
+}
 
 app.post('/data', function(req,res){
-	res.status = 200;
-	res.writeHead(res.status);
-	res.end();
-	if (typeof socket !== 'undefined') {
-		socket.send(req.param('button'));
-	}
-	console.error('handler');
-	console.log(req.param('button'));
+    res.status = 200;
+    res.writeHead(res.status);
+    res.end();
+
+    console.error('handler');
+    console.log(req.body.button);
+    if (req.body.button == 0) {
+        exec("handlers/back.sh", exec_error);
+    } else if (req.body.button == 1) {
+        exec("handlers/up.sh", exec_error);
+    } else if (req.body.button == 2) {
+        exec("handlers/select.sh", exec_error);
+    } else if (req.body.button == 3) {
+        exec("handlers/down.sh", exec_error);
+    }
 });
+
 var server = app.listen(5000, function() {
     console.log('Listening on port %d', server.address().port);
 });
 
-WebSocketServer = require('ws').Server
-, wss = new WebSocketServer({server:server});
-
-wss.on('connection', function(ws) {
-    socket = ws;
-    ws.on('message', function(message) {
-        console.log('received: %s', message);
-    });
-    ws.send('something');
-});
