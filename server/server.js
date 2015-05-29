@@ -14,8 +14,6 @@ app.post('/data', function(req,res){
     res.writeHead(res.status);
     res.end();
 
-    console.error('handler');
-    console.log(req.body.button);
     if (req.body.button == 0) {
         exec("handlers/back.sh", exec_error);
     } else if (req.body.button == 1) {
