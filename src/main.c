@@ -14,6 +14,7 @@ static unsigned char s_ip[4] = {192,168,1,0};
 static TextLayer *s_ip_layers[4];
 static TextLayer *s_top_layer;
 
+//TODO: don't think these are a good way to do this, use different config provider
 static ClickHandler click_up_handler;
 static ClickHandler click_back_handler;
 static ClickHandler click_select_handler;
@@ -30,9 +31,11 @@ static void update_ui() {
         GColor color = BG_COLOR;
         if (s_current_field == i) {
             color = SEL_COLOR;
+
 #ifdef PBL_BW
             text_layer_set_text_color(s_ip_layers[i], GColorBlack);
 #endif
+
         } else {
             text_layer_set_text_color(s_ip_layers[i], GColorWhite);
         }
@@ -63,7 +66,6 @@ static void select_handler(ClickRecognizerRef crr, void *context) {
 }
 
 static void up_handler(ClickRecognizerRef crr, void *context) {
-    //s_ip[s_current_field] = (s_ip[s_current_field]+1)%256;
     s_ip[s_current_field]++;
 
     update_ui();
@@ -76,22 +78,14 @@ static void down_handler(ClickRecognizerRef crr, void *context) {
 }
 
 static void config_provider(Window *window) {
-
     window_single_repeating_click_subscribe(BUTTON_ID_DOWN, 50, click_down_handler);
     window_single_repeating_click_subscribe(BUTTON_ID_UP, 50, click_up_handler);
     window_single_repeating_click_subscribe(BUTTON_ID_SELECT, 200, click_select_handler);
     window_single_click_subscribe(BUTTON_ID_BACK, click_handler);
-
-    /*
-    window_raw_click_subscribe(BUTTON_ID_DOWN, NULL, click_handler, NULL);
-    window_raw_click_subscribe(BUTTON_ID_UP, NULL, click_handler, NULL);
-    window_raw_click_subscribe(BUTTON_ID_SELECT, NULL, click_handler, NULL);
-    */
 }
 
 static void window_load(Window *window) {
     Layer *window_layer = window_get_root_layer(window);
-    GRect bounds = layer_get_bounds(window_layer);
 
     s_top_layer = text_layer_create(GRect(0,20,144,40));
     text_layer_set_text(s_top_layer, "Enter IP:");
@@ -127,6 +121,7 @@ static void init(void) {
         .load = window_load,
         .unload = window_unload,
     });
+
     window_set_click_config_provider(s_window, (ClickConfigProvider) config_provider);
     window_stack_push(s_window, true);
 
