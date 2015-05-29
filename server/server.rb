@@ -2,6 +2,7 @@ require 'sinatra'
 
 configure do
   set :port, 5000
+  set :bind, '0.0.0.0'
 end
 
 post '/data' do
