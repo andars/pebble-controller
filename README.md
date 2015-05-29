@@ -33,7 +33,7 @@ ruby server.rb
 ##Suggested Uses
 
 This was originally developed as a method to control presentations with
-a pebble and was once tied to (RevealJS)[https://github.com/hakimel/reveal.js].
+a pebble and was once tied to [RevealJS](https://github.com/hakimel/reveal.js).
 It works well for this use case, so go ahead and test it out
 [here](http://lab.hakim.se/reveal-js/#/). 
 
