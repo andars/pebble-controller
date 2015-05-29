@@ -22,6 +22,7 @@ this to be used on any os.
 ``` 
 
 cd server
+bundle install
 ruby server.rb
 
 ```
