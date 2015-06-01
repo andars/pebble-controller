@@ -7,17 +7,41 @@ IP. Currently, the server simply executes a script hook that simulates mac key
 presses, but changing these scripts (or the server itself) would easily allow
 this to be used on any os.
 
-##Setup
+##Setup Watchapp
 
-1. Clone the repo
+
+~~1. Clone the repo
 
 2. Install pebble sdk (or use cloudpebble, I think thats possible)
 
-3. Build the app and install it on your pebble 
+3. Build the app and install it on your pebble~~ 
 
-4. Modify the handler scripts `server/handlers` to your heart's content 
+Pebble-controller is now available on the pebble appstore. Find it
+[here](https://apps.getpebble.com/en_US/application/556a32990bfdada493000060)
 
-5. Start the server with:
+##Setup Server
+
+###Easiest Method - OS X only :( 
+
+1. Download the mac app from
+   [here](https://github.com/andars/pebble-controller/releases)
+
+2. Create a directory in your home folder called `.pc_handlers`, and place
+   files titled `0.sh`, `1.sh`, `2.sh`, and `3.sh` inside. These scripts will
+   be invoked when the corresponding buttons are pressed. See [an
+   example](https://github.com/andars/pebble-controller/tree/master/server/rust/handlers)
+
+3. Start the mac app and enjoy
+
+###Alternative #1 - Ruby
+
+*Prerequisites: ruby, bundler*
+
+1. Clone this repo
+
+2. Modify the handler scripts `server/handlers` to your heart's content 
+
+3. Start the server with:
 
 ``` 
 
@@ -30,6 +54,22 @@ ruby server.rb
 6. Run the app and enter your desired ip address
 
 7. Good to go!
+
+###Alternative #2 - Rust
+
+*Prerequisites: Rust, cargo*
+
+1. Clone this repo
+
+2. Navigate to `server/rust`
+
+3. 
+
+```
+
+cargo run --release
+
+```
 
 ##Suggested Uses
 
