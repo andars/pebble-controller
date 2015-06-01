@@ -2,3 +2,5 @@
 .waf-*
 build/
 node_modules/
+
+target/
