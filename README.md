@@ -10,11 +10,11 @@ this to be used on any os.
 ##Setup Watchapp
 
 
-~~1. Clone the repo
+~~1. Clone the repo~~
 
-2. Install pebble sdk (or use cloudpebble, I think thats possible)
+~~2. Install pebble sdk (or use cloudpebble, I think thats possible)~~
 
-3. Build the app and install it on your pebble~~ 
+~~3. Build the app and install it on your pebble~~ 
 
 Pebble-controller is now available on the pebble appstore. Find it
 [here](https://apps.getpebble.com/en_US/application/556a32990bfdada493000060)
