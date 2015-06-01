@@ -18,16 +18,23 @@ fn main() {
     Iron::new(router).http("0.0.0.0:5000").unwrap();
 
     fn handler(req: &mut Request) -> IronResult<Response> {
+        let mut resp = String::new();
         match req.get_ref::<UrlEncodedBody>() {
             Ok(hashmap) => {
-                println!("Received data: \n {:?}", hashmap);
-                let button: isize = hashmap.get("button").unwrap()[0].parse().unwrap();
-                let status = Command::new(format!("./handlers/{:?}.sh", button)).status().unwrap();
-                println!("Status: {:?}", status);
+                let button: isize = hashmap.get("button").unwrap()[0].parse().unwrap_or(5);
+                let status = Command::new(format!("{}/.pc_handlers/{:?}.sh",std::env::home_dir().unwrap().to_str().unwrap(), button)).status();
+                match status {
+                    Ok(_) => { 
+                        resp = "Received".to_string();
+                    } 
+                    Err(e) => {
+                        resp = format!("{:?}", e);
+                    }
+                }
             }
-            Err(_) => println!("Error")
+            Err(_) => println!("Pebble Controller Error")
         }
 
-        Ok(Response::with((status::Ok, "thanks")))
+        Ok(Response::with((status::Ok, &resp[..])))
     }
 }
