@@ -31,7 +31,7 @@ Pebble-controller is now available on the pebble appstore. Find it
 2. Create a directory in your home folder called `.pc_handlers`, and place
    files titled `0.sh`, `1.sh`, `2.sh`, and `3.sh` inside. These scripts will
    be invoked when the corresponding buttons are pressed. See [an
-   example](https://github.com/andars/pebble-controller/tree/master/server/rust/handlers)
+   example](master/server/rust/handlers)
 
 3. Start the mac app and enjoy
 
@@ -63,9 +63,9 @@ ruby server.rb
 
 ```
 
-6. Run the app and enter your desired ip address
+4. Run the app and enter your desired ip address
 
-7. Good to go!
+5. Good to go!
 
 ###Alternative #2 - Rust
 
@@ -95,3 +95,7 @@ Now it has become more flexible so use it for whatever you wish.
 ##Screenshot
 
 ![screenshot](screenshot.png)
+
+##License
+
+MIT. See [LICENSE](LICENSE)
