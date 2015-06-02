@@ -5,7 +5,9 @@ a controller for your pc. The app prompts you for a destination IP address and
 sends information on each button press to a server running on port 5000 at that
 IP. Currently, the server simply executes a script hook that simulates mac key
 presses, but changing these scripts (or the server itself) would easily allow
-this to be used on any os.
+this to be used on any os. 
+
+Feel free to open github issues for bug reports or to provide feedback.
 
 ##Setup Watchapp
 
