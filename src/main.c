@@ -2,10 +2,10 @@
 #include "app_message.h"
 
 #define SEL_COLOR COLOR_FALLBACK(GColorBlueMoon, GColorWhite)
-
 #define BG_COLOR COLOR_FALLBACK(GColorDarkGray, GColorBlack)
-
 #define FIELD_SPACING 37
+#define IP_PERSIST_KEY 0xdeadbeef
+
 
 static Window *s_window; 
 static bool s_ip_set = false;
@@ -53,8 +53,9 @@ static void select_handler(ClickRecognizerRef crr, void *context) {
     s_current_field++;
     if (s_current_field > 3) {
         s_ip_set = true;
+
+        persist_write_data(IP_PERSIST_KEY, s_ip, 4);
         send_ip(s_ip);
-        APP_LOG(APP_LOG_LEVEL_DEBUG, "changing handlers");
 
         click_down_handler = click_handler;
         click_up_handler = click_handler;
@@ -115,7 +116,11 @@ static void window_unload(Window *window) {
 }
 
 static void init(void) {
-    APP_LOG(APP_LOG_LEVEL_DEBUG,"here goes");
+    if (persist_exists(IP_PERSIST_KEY)) {
+        persist_read_data(IP_PERSIST_KEY, s_ip, 4); 
+    }
+
+
     s_window = window_create();
     window_set_window_handlers(s_window, (WindowHandlers) {
         .load = window_load,
