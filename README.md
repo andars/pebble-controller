@@ -40,7 +40,7 @@ Pebble-controller is now available on the pebble appstore. Find it
 1. Download the jar file from
    [here](https://github.com/andars/pebble-controller/releases)
 
-2. Create a directory in your home folder called `.pc_hanlders` and place files
+2. Create a directory in your home folder called `.pc_handlers` and place files
    titled `0`, `1`, `2`, and `3` inside. Mark these scripts/executables as
    executable and they will be invoked when the buttons are pressed. See the
    example linked above.
