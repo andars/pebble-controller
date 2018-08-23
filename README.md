@@ -1,4 +1,4 @@
-#Pebble Controller
+# Pebble Controller
 
 Pebble Controller is a pebble app that allows you to use your pebble as
 a controller for your pc. The app prompts you for a destination IP address and
@@ -9,7 +9,7 @@ this to be used on any os.
 
 Feel free to open github issues for bug reports or to provide feedback.
 
-##Setup Watchapp
+## Setup Watchapp
 
 
 ~~1. Clone the repo~~
@@ -21,9 +21,9 @@ Feel free to open github issues for bug reports or to provide feedback.
 Pebble-controller is now available on the pebble appstore. Find it
 [here](https://apps.getpebble.com/en_US/application/556a32990bfdada493000060)
 
-##Setup Server
+## Setup Server
 
-###Easiest Method - OS X only :( 
+### Easiest Method - OS X only :( 
 
 1. Download the mac app from
    [here](https://github.com/andars/pebble-controller/releases)
@@ -35,7 +35,7 @@ Pebble-controller is now available on the pebble appstore. Find it
 
 3. Start the mac app and enjoy
 
-###Experimental Jar File
+### Experimental Jar File
 
 1. Download the jar file from
    [here](https://github.com/andars/pebble-controller/releases)
@@ -45,7 +45,7 @@ Pebble-controller is now available on the pebble appstore. Find it
    executable and they will be invoked when the buttons are pressed. See the
    example linked above.
 
-###Alternative #1 - Ruby
+### Alternative #1 - Ruby
 
 *Prerequisites: ruby, bundler*
 
@@ -67,7 +67,7 @@ ruby server.rb
 
 5. Good to go!
 
-###Alternative #2 - Rust
+### Alternative #2 - Rust
 
 *Prerequisites: Rust, cargo*
 
@@ -83,7 +83,7 @@ cargo run --release
 
 ```
 
-##Suggested Uses
+## Suggested Uses
 
 This was originally developed as a method to control presentations with
 a pebble and was once tied to [RevealJS](https://github.com/hakimel/reveal.js).
@@ -92,10 +92,10 @@ It works well for this use case, so go ahead and test it out
 
 Now it has become more flexible so use it for whatever you wish.
 
-##Screenshot
+## Screenshot
 
 ![screenshot](screenshot.png)
 
-##License
+## License
 
 MIT. See [LICENSE](LICENSE)
